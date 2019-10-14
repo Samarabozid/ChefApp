@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "528580619197",
+    "firebase_url": "https://chef-af391.firebaseio.com",
+    "project_id": "chef-af391",
+    "storage_bucket": "chef-af391.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528580619197:android:89247bcd89b8e095d040d4",
+        "android_client_info": {
+          "package_name": "softagi.chef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528580619197-mf2mfe6o9uci99s3fns0pqd0tinvttdi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "softagi.chef",
+            "certificate_hash": "2aee1a60348253690c2e327f825ebf986529a7d3"
+          }
+        },
+        {
+          "client_id": "528580619197-v345n074s21agp62ltkvfoh8no1a8b23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJnaezqMbNGw3q1Kv2dq_zm1ZOyEc-lJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528580619197-v345n074s21agp62ltkvfoh8no1a8b23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
