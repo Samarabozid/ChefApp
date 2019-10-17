@@ -99,105 +99,68 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(fragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        //printhash();
-        /*FacebookSdk.sdkInitialize(MainActivity.this);
-        AppEventsLogger.activateApp(MainActivity.this);*/
-
         callbackManager = CallbackManager.Factory.create();
-
         loginButton = findViewById(R.id.login_btn);
-
-        loginButton.setReadPermissions(Arrays.asList("public_profile", "email","user_birthday","user_friends"));
-        //If you are using in a fragment, call loginButton.setFragment(this);
-
-        //Callback registration
+        loginButton.setReadPermissions("email", "public_profile");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
         {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
-                /*GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject object, GraphResponse response)
-                    {
-                        progressDialog.dismiss();
-                        Log.d("response", response.toString());
-                        getdatafromfacebook(object);
-                    }
-                });*/
-                Toast.makeText(getApplicationContext(), "Done ..", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
-            public void onCancel() {
-                // App code
+            public void onCancel()
+            {
+
             }
 
             @Override
             public void onError(FacebookException exception)
             {
-                // App code
+
             }
         });
-
-        AccessToken accessToken = AccessToken.getCurrentAccessToken();
-        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
-
-        if (isLoggedIn)
-        {
-            Toast.makeText(getApplicationContext(), "loged in ..", Toast.LENGTH_SHORT).show();
-        }
     }
-
-    /*private void getdatafromfacebook(JSONObject object)
-    {
-        try
-        {
-            //URL profile_picture = new URL("https://graph.facebok.com/" + object.getString("id") + "/picture?width=250&height=250");
-            String s = "https://graph.facebok.com/" + object.getString("id") + "/picture?width=250&height=250";
-
-            Picasso.get()
-                    .load(s)
-                    .into(circleImageView);
-
-            result_txt.setText(object.getString("email") + "\n" + object.getString("birthday") + "\n" + object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));
-        }
-        catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
-    }*/
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
-        super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        if (accessToken == null)
+        {
+            Toast.makeText(MainActivity.this, "User Logged out", Toast.LENGTH_LONG).show();
+        } else {
+            startActivity(new Intent(this, StartActivity.class));
+        }
     }
 
-    private void printhash()
+    /*private void printhash()
     {
         try
         {
             PackageInfo packageInfo = getPackageManager().getPackageInfo("softagi.chef", PackageManager.GET_SIGNATURES);
 
-            for (Signature signature : packageInfo.signatures)
-            {
+            for (Signature signature : packageInfo.signatures) {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA");
                 messageDigest.update(signature.toByteArray());
                 Log.d("KeyHash", Base64.encodeToString(messageDigest.digest(), Base64.DEFAULT));
             }
-        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e)
-        {
+        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     private long exitTime = 0;
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void doExitApp() {
-        if ((System.currentTimeMillis() - exitTime) > 2000) {
+    public void doExitApp()
+    {
+        if ((System.currentTimeMillis() - exitTime) > 2000)
+        {
             Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
             exitTime = System.currentTimeMillis();
         } else {
@@ -205,7 +168,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBackPressed()
     {

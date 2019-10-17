@@ -35,9 +35,9 @@ public class CardWizardActivity extends AppCompatActivity
             "Follow Your best Chefs."
     };
     private int about_images_array[] = {
-            R.drawable.logo,
-            R.drawable.logo,
-            R.drawable.logo
+            R.drawable.logo2,
+            R.drawable.logo2,
+            R.drawable.logo2
     };
 
     @Override

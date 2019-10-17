@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/colorAccent"
     android:orientation="vertical"
     >
 
@@ -17,7 +17,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:padding="50dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo2"
         android:elevation="10dp"
         />
 
@@ -27,7 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Chef        \n        plate"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cook"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Like no Other .."
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         android:gravity="center"
